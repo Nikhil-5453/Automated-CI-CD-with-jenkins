@@ -20,15 +20,17 @@ pipeline {
         // ----------------- Stage 1: CHECKOUT CODE STAGE -----------------
         stage('Checkout Code') {
             steps {
+                branch = 'main'
+                git url: 'git@github.com:Nikhil-5453/Automated-CI-CD-with-jenkins.git'
                 // ✅ Single checkout — removed duplicate git{} call
-                checkout([
-                    $class: 'GitSCM',
-                    branches: [[name: '*/main']],
-                   // userRemoteConfigs: [[
-                        url: 'git@github.com:Nikhil-5453/Automated-CI-CD-with-jenkins.git',
-                        //credentialsId: 'github-ssh'
-                    //]]
-                ])
+                // checkout([
+                //     $class: 'GitSCM',
+                //     branches: [[name: '*/main']],
+                //    // userRemoteConfigs: [[
+                //         url: 'git@github.com:Nikhil-5453/Automated-CI-CD-with-jenkins.git',
+                //         //credentialsId: 'github-ssh'
+                //     //]]
+                // ])
                 // script {
                 //     env.GIT_COMMIT  = sh(script: 'git rev-parse HEAD', returnStdout: true).trim()
                 //     env.GIT_BRANCH  = sh(script: 'git rev-parse --abbrev-ref HEAD', returnStdout: true).trim()
