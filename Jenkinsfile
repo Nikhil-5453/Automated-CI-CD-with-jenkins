@@ -20,7 +20,7 @@ pipeline {
         // ----------------- Stage 1: CHECKOUT CODE STAGE -----------------
         stage('Checkout Code') {
             steps {
-                branch = 'main'
+                branch: 'main'
                 git url: 'git@github.com:Nikhil-5453/Automated-CI-CD-with-jenkins.git'
                 // ✅ Single checkout — removed duplicate git{} call
                 // checkout([
