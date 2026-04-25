@@ -24,18 +24,18 @@ pipeline {
                 checkout([
                     $class: 'GitSCM',
                     branches: [[name: '*/main']],
-                    userRemoteConfigs: [[
+                   // userRemoteConfigs: [[
                         url: 'git@github.com:Nikhil-5453/Automated-CI-CD-with-jenkins.git',
-                        credentialsId: 'github-ssh'
-                    ]]
+                        //credentialsId: 'github-ssh'
+                    //]]
                 ])
-                script {
-                    env.GIT_COMMIT  = sh(script: 'git rev-parse HEAD', returnStdout: true).trim()
-                    env.GIT_BRANCH  = sh(script: 'git rev-parse --abbrev-ref HEAD', returnStdout: true).trim()
-                    env.APP_VERSION = "1.0.${env.BUILD_NUMBER}"
-                }
-                echo "Checked out commit ${env.GIT_COMMIT} on branch ${env.GIT_BRANCH}"
-                echo "App Version: ${env.APP_VERSION}"
+                // script {
+                //     env.GIT_COMMIT  = sh(script: 'git rev-parse HEAD', returnStdout: true).trim()
+                //     env.GIT_BRANCH  = sh(script: 'git rev-parse --abbrev-ref HEAD', returnStdout: true).trim()
+                //     env.APP_VERSION = "1.0.${env.BUILD_NUMBER}"
+                // }
+                // echo "Checked out commit ${env.GIT_COMMIT} on branch ${env.GIT_BRANCH}"
+                // echo "App Version: ${env.APP_VERSION}"
             }
         }
         // ----------------- Stage 2: MAVEN BUILD STAGE -----------------
